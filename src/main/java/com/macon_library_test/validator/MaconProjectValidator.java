@@ -25,7 +25,7 @@ public class MaconProjectValidator implements Validator {
     @Override
     public void validate(Object o, Errors errors) {
         MaconProject project = (MaconProject) o;
-        if (maconProjectDAO.show(project.getId()).isPresent()) {
+        if (maconProjectDAO.show(project.getId()) != null) {
             errors.rejectValue("id", "", "This id has already taken");
         }
     }

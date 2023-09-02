@@ -32,16 +32,16 @@ public class MaconProject {
 
     @NotEmpty(message = "Market segment should not be empty")
     @Size(min = 2, max = 100, message = "Market segment should be between 2 and 100 characters")
-    private String marketSegment;
+    private String segment;
 
     @NotNull(message = "Year should not be null")
     @Min(value = 2004, message = "Year should be more than 2004")
-    private int year;
+    private int period;
 
     public MaconProject() {
     }
 
-    public MaconProject(int id, String number, String title, String country, String region, String city, String client, String marketSegment, int year) {
+    public MaconProject(int id, String number, String title, String country, String region, String city, String client, String segment, int period) {
         this.id = id;
         this.number = number;
         this.title = title;
@@ -49,8 +49,8 @@ public class MaconProject {
         this.region = region;
         this.city = city;
         this.client = client;
-        this.marketSegment = marketSegment;
-        this.year = year;
+        this.segment = segment;
+        this.period = period;
     }
 
     public int getId() {
@@ -109,19 +109,19 @@ public class MaconProject {
         this.client = client;
     }
 
-    public String getMarketSegment() {
-        return marketSegment;
+    public String getSegment() {
+        return segment;
     }
 
-    public void setMarketSegment(String marketSegment) {
-        this.marketSegment = marketSegment;
+    public void setSegment(String segment) {
+        this.segment = segment;
     }
 
-    public int getYear() {
-        return year;
+    public int getPeriod() {
+        return period;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public void setPeriod(int period) {
+        this.period = period;
     }
 }

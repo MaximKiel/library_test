@@ -15,11 +15,9 @@ import javax.validation.Valid;
 public class MaconProjectController {
 
     private final MaconProjectDAO maconProjectDAO;
-    private final MaconProjectValidator validator;
 
-    public MaconProjectController(MaconProjectDAO maconProjectDAO, MaconProjectValidator validator) {
+    public MaconProjectController(MaconProjectDAO maconProjectDAO) {
         this.maconProjectDAO = maconProjectDAO;
-        this.validator = validator;
     }
 
     @GetMapping()
@@ -42,8 +40,6 @@ public class MaconProjectController {
     @PostMapping()
     public String create(@ModelAttribute("project") @Valid MaconProject project, BindingResult bindingResult) {
 
-        validator.validate(project, bindingResult);
-
         if (bindingResult.hasErrors()) {
             return "library/new";
         }
@@ -53,17 +49,16 @@ public class MaconProjectController {
     }
 
     @GetMapping("/{id}/edit")
-    public String edit(@PathVariable("id") int id, Model model) {
+    public String edit(Model model, @PathVariable int id) {
         model.addAttribute("project", maconProjectDAO.show(id));
         return "library/edit";
     }
 
     @PatchMapping("/{id}")
-    public String update(@PathVariable("id") int id, @ModelAttribute("project") @Valid MaconProject project,
-                         BindingResult bindingResult) {
-        validator.validate(project, bindingResult);
+    public String update(@ModelAttribute("project") @Valid MaconProject project, BindingResult bindingResult,
+                         @PathVariable("id") int id) {
 
-        if(bindingResult.hasErrors()) {
+        if (bindingResult.hasErrors()) {
             return "library/edit";
         }
 
