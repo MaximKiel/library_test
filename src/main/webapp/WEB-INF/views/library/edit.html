@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit project</title>
+</head>
+<body>
+
+<form th:method="PATCH" th:action="@{/library/{id}(id=${project.getId()})" th:object="${project}">
+    <label for="number">Введите номер проекта: </label>
+    <input type="text" th:field="*{number}" id="number">
+    <div style="color: red" th:if="${#fields.hasErrors('number')}" th:errors="*{number}">number error</div>
+    <br/>
+    <label for="title">Введите номер проекта: </label>
+    <input type="text" th:field="*{title}" id="title">
+    <div style="color: red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">title error</div>
+    <br/>
+    <label for="country">Введите номер проекта: </label>
+    <input type="text" th:field="*{country}" id="country">
+    <div style="color: red" th:if="${#fields.hasErrors('country')}" th:errors="*{country}">country error</div>
+    <br/>
+    <label for="region">Введите номер проекта: </label>
+    <input type="text" th:field="*{region}" id="region">
+    <div style="color: red" th:if="${#fields.hasErrors('region')}" th:errors="*{region}">region error</div>
+    <br/>
+    <label for="city">Введите номер проекта: </label>
+    <input type="text" th:field="*{city}" id="city">
+    <div style="color: red" th:if="${#fields.hasErrors('city')}" th:errors="*{city}">city error</div>
+    <br/>
+    <label for="client">Введите номер проекта: </label>
+    <input type="text" th:field="*{client}" id="client">
+    <div style="color: red" th:if="${#fields.hasErrors('client')}" th:errors="*{client}">client error</div>
+    <br/>
+    <label for="marketSegment">Введите номер проекта: </label>
+    <input type="text" th:field="*{marketSegment}" id="marketSegment">
+    <div style="color: red" th:if="${#fields.hasErrors('marketSegment')}" th:errors="*{marketSegment}">marketSegment error</div>
+    <br/>
+    <label for="year">Введите номер проекта: </label>
+    <input type="number" th:field="*{year}" id="year">
+    <div style="color: red" th:if="${#fields.hasErrors('year')}" th:errors="*{year}">year error</div>
+    <br/>
+    <input type="submit" value="Сохранить"/>
+</form>
+</body>
+</html>

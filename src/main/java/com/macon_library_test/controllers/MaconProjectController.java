@@ -3,7 +3,6 @@ package com.macon_library_test.controllers;
 import com.macon_library_test.dao.MaconProjectDAO;
 import com.macon_library_test.model.MaconProject;
 import com.macon_library_test.validator.MaconProjectValidator;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,15 +17,14 @@ public class MaconProjectController {
     private final MaconProjectDAO maconProjectDAO;
     private final MaconProjectValidator validator;
 
-    @Autowired
     public MaconProjectController(MaconProjectDAO maconProjectDAO, MaconProjectValidator validator) {
         this.maconProjectDAO = maconProjectDAO;
         this.validator = validator;
     }
 
-    @GetMapping
+    @GetMapping()
     public String index(Model model) {
-        model.addAttribute("project", maconProjectDAO.index());
+        model.addAttribute("projects", maconProjectDAO.index());
         return "library/index";
     }
 
