@@ -1,7 +1,6 @@
 package com.macon_library_test.model;
 
 import javax.validation.constraints.*;
-import java.util.List;
 
 public class MaconProject {
 
@@ -31,7 +30,9 @@ public class MaconProject {
     @Size(min = 2, max = 100, message = "Client should be between 2 and 100 characters")
     private String client;
 
-    private List<String> marketSegments;
+    @NotEmpty(message = "Market segment should not be empty")
+    @Size(min = 2, max = 100, message = "Market segment should be between 2 and 100 characters")
+    private String marketSegment;
 
     @NotNull(message = "Year should not be null")
     @Min(value = 2004, message = "Year should be more than 2004")
@@ -40,7 +41,7 @@ public class MaconProject {
     public MaconProject() {
     }
 
-    public MaconProject(int id, String number, String title, String country, String region, String city, String client, List<String> marketSegments, int year) {
+    public MaconProject(int id, String number, String title, String country, String region, String city, String client, String marketSegment, int year) {
         this.id = id;
         this.number = number;
         this.title = title;
@@ -48,7 +49,7 @@ public class MaconProject {
         this.region = region;
         this.city = city;
         this.client = client;
-        this.marketSegments = marketSegments;
+        this.marketSegment = marketSegment;
         this.year = year;
     }
 
@@ -108,12 +109,12 @@ public class MaconProject {
         this.client = client;
     }
 
-    public List<String> getMarketSegments() {
-        return marketSegments;
+    public String getMarketSegment() {
+        return marketSegment;
     }
 
-    public void setMarketSegments(List<String> marketSegments) {
-        this.marketSegments = marketSegments;
+    public void setMarketSegment(String marketSegment) {
+        this.marketSegment = marketSegment;
     }
 
     public int getYear() {

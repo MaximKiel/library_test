@@ -32,14 +32,14 @@ public class MaconProjectDAO {
         jdbcTemplate.update(
                 "INSERT INTO macon_project(number, title, country, region, city, client, market_segments, project_year) " +
                         "VALUES(?, ?, ?, ?, ?, ?, ?, ?)", project.getNumber(), project.getTitle(), project.getCountry(),
-                project.getRegion(), project.getCity(), project.getClient(), project.getMarketSegments(), project.getYear());
+                project.getRegion(), project.getCity(), project.getClient(), project.getMarketSegment(), project.getYear());
     }
 
     public void update(int id, MaconProject updatedProject) {
         jdbcTemplate.update("UPDATE macon_project SET number=?, title=?, country=?, region=?, city=?, client=?," +
                         "market_segments=?, project_year=? WHERE id=?", updatedProject.getNumber(),
                 updatedProject.getTitle(), updatedProject.getCountry(), updatedProject.getRegion(),
-                updatedProject.getCity(), updatedProject.getClient(), updatedProject.getMarketSegments(),
+                updatedProject.getCity(), updatedProject.getClient(), updatedProject.getMarketSegment(),
                 updatedProject.getYear(), id);
     }
 
