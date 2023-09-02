@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+</head>
+<body>
+<form th:action="@{/search-result}" th:object="${form}" th:method="post">
+
+    <label for="country">Введите страну проекта: </label>
+    <input type="text"  id="country">
+
+</form>
+</body>
+</html>

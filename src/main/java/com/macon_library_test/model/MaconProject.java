@@ -34,6 +34,10 @@ public class MaconProject {
     @Size(min = 2, max = 100, message = "Market segment should be between 2 and 100 characters")
     private String segment;
 
+    @NotEmpty(message = "Type of project should not be empty")
+    @Size(min = 2, max = 100, message = "Type of project should be between 2 and 100 characters")
+    private String type;
+
     @NotNull(message = "Year should not be null")
     @Min(value = 2004, message = "Year should be more than 2004")
     private int period;
@@ -41,7 +45,7 @@ public class MaconProject {
     public MaconProject() {
     }
 
-    public MaconProject(int id, String number, String title, String country, String region, String city, String client, String segment, int period) {
+    public MaconProject(int id, String number, String title, String country, String region, String city, String client, String segment, String type, int period) {
         this.id = id;
         this.number = number;
         this.title = title;
@@ -50,6 +54,7 @@ public class MaconProject {
         this.city = city;
         this.client = client;
         this.segment = segment;
+        this.type = type;
         this.period = period;
     }
 
@@ -123,5 +128,13 @@ public class MaconProject {
 
     public void setPeriod(int period) {
         this.period = period;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

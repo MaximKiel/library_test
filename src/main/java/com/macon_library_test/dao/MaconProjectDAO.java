@@ -29,17 +29,25 @@ public class MaconProjectDAO {
 
     public void save(MaconProject project) {
         jdbcTemplate.update(
-                "INSERT INTO macon_project(number, title, country, region, city, client, segment, period) " +
-                        "VALUES(?, ?, ?, ?, ?, ?, ?, ?)", project.getNumber(), project.getTitle(), project.getCountry(),
-                project.getRegion(), project.getCity(), project.getClient(), project.getSegment(), project.getPeriod());
+                "INSERT INTO macon_project(number, title, country, region, city, client, segment, project_type, period) " +
+                        "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)", project.getNumber(), project.getTitle(), project.getCountry(),
+                project.getRegion(), project.getCity(), project.getClient(), project.getSegment(), project.getType(),
+                project.getPeriod());
+    }
+
+    public List<MaconProject> search(String... args) {
+        List<MaconProject> allProjects =
+                jdbcTemplate.query("SELECT * FROM macon_project", new BeanPropertyRowMapper<>(MaconProject.class));
+
+        return null;
     }
 
     public void update(int id, MaconProject updatedProject) {
         jdbcTemplate.update("UPDATE macon_project SET number=?, title=?, country=?, region=?, city=?, client=?," +
-                        "segment=?, period=? WHERE id=?", updatedProject.getNumber(),
+                        "segment=?, project_type=?, period=? WHERE id=?", updatedProject.getNumber(),
                 updatedProject.getTitle(), updatedProject.getCountry(), updatedProject.getRegion(),
                 updatedProject.getCity(), updatedProject.getClient(), updatedProject.getSegment(),
-                updatedProject.getPeriod(), id);
+                updatedProject.getType(), updatedProject.getPeriod(), id);
     }
 
     public void delete(int id) {
