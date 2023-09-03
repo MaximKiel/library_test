@@ -37,6 +37,18 @@ public class MaconProjectDAO {
                 project.getPeriod());
     }
 
+    public void update(int id, MaconProject updatedProject) {
+        jdbcTemplate.update("UPDATE macon_project SET number=?, title=?, country=?, region=?, city=?, client=?," +
+                        "segment=?, type=?, period=? WHERE id=?", updatedProject.getNumber(),
+                updatedProject.getTitle(), updatedProject.getCountry(), updatedProject.getRegion(),
+                updatedProject.getCity(), updatedProject.getClient(), updatedProject.getSegment(),
+                updatedProject.getType(), updatedProject.getPeriod(), id);
+    }
+
+    public void delete(int id) {
+        jdbcTemplate.update("DELETE FROM macon_project WHERE id=?", id);
+    }
+
     public List<MaconProject> findProject(SearchProject searchProject) {
         List<MaconProject> result =
                 jdbcTemplate.query("SELECT * FROM macon_project", new BeanPropertyRowMapper<>(MaconProject.class));
@@ -68,17 +80,5 @@ public class MaconProjectDAO {
             result = result.stream().filter(p -> p.getPeriod() == Integer.parseInt(searchProject.getPeriod())).collect(Collectors.toList());
         }
         return result;
-    }
-
-    public void update(int id, MaconProject updatedProject) {
-        jdbcTemplate.update("UPDATE macon_project SET number=?, title=?, country=?, region=?, city=?, client=?," +
-                        "segment=?, type=?, period=? WHERE id=?", updatedProject.getNumber(),
-                updatedProject.getTitle(), updatedProject.getCountry(), updatedProject.getRegion(),
-                updatedProject.getCity(), updatedProject.getClient(), updatedProject.getSegment(),
-                updatedProject.getType(), updatedProject.getPeriod(), id);
-    }
-
-    public void delete(int id) {
-        jdbcTemplate.update("DELETE FROM macon_project WHERE id=?", id);
     }
 }

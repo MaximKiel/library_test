@@ -14,9 +14,9 @@
 <p th:text="${'Сегмент рынка: ' + project.getSegment()}">Value</p>
 <p th:text="${'Год: ' + project.getPeriod()}">Value</p>
 
-<a th:href="@{/library/{id}/edit(id=${project.getId()})}">Редактировать</a>
+<a th:href="@{/library/projects/{id}/edit(id=${project.getId()})}">Редактировать</a>
 
-<form th:method="DELETE" th:action="@{/library/{id}(id=${project.getId()})}">
+<form th:method="DELETE" th:action="@{/library/projects/{id}(id=${project.getId()})}">
     <input type="submit" value="Удалить">
 </form>
 

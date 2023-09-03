@@ -2,11 +2,10 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head>
     <meta charset="UTF-8">
-    <title>New project</title>
+    <title>Search</title>
 </head>
 <body>
-
-<form th:method="POST" th:action="@{/library}" th:object="${project}">
+<form th:method="POST" th:action="@{/library/projects/search-result}" th:object="${project}">
     <label for="number">Введите номер проекта: </label>
     <input type="text" th:field="*{number}" id="number">
     <div style="color: red" th:if="${#fields.hasErrors('number')}" th:errors="*{number}">number error</div>
@@ -43,7 +42,7 @@
     <input type="number" th:field="*{period}" id="period">
     <div style="color: red" th:if="${#fields.hasErrors('period')}" th:errors="*{period}">period error</div>
     <br/>
-    <input type="submit" value="Добавить"/>
+    <input type="submit" value="Найти"/>
 </form>
 </body>
 </html>

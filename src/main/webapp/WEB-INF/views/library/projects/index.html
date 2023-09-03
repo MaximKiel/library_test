@@ -6,15 +6,15 @@
 </head>
 <body>
 
-<a href="/library/new">Добавить проект</a>
+<a href="/library/projects/new">Добавить проект</a>
 <br/>
-<a href="/library/search">Найти проект</a>
+<a href="/library/projects/search">Найти проект</a>
 
 <br/>
 <hr/>
 
 <div th:each="project : ${projects}">
-    <a th:href="@{/library/{id}(id=${project.getId()})}"
+    <a th:href="@{/library/projects/{id}(id=${project.getId()})}"
        th:text="${project.getNumber() + ', ' + project.getTitle()}">project</a>
 </div>
 </body>

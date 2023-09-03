@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("/library")
+@RequestMapping("/library/projects")
 public class MaconProjectController {
 
     private final MaconProjectDAO maconProjectDAO;
@@ -23,49 +23,49 @@ public class MaconProjectController {
     @GetMapping()
     public String index(Model model) {
         model.addAttribute("projects", maconProjectDAO.index());
-        return "library/index";
+        return "library/projects/index";
     }
 
     @GetMapping("/search")
     public String search(@ModelAttribute("project") SearchProject project) {
-        return "library/search";
+        return "library/projects/search";
     }
 
     @PostMapping("/search-result")
     public String searchResult(Model model, @ModelAttribute("project") @Valid SearchProject project, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "library/search";
+            return "library/projects/search";
         }
         model.addAttribute("result", maconProjectDAO.findProject(project));
-        return "library/result";
+        return "library/projects/result";
     }
 
     @GetMapping("/{id}")
     public String show(@PathVariable("id") int id, Model model) {
         model.addAttribute("project", maconProjectDAO.show(id));
-        return "library/show";
+        return "library/projects/show";
     }
 
     @GetMapping("/new")
     public String newProject(@ModelAttribute("project") MaconProject project) {
-        return "library/new";
+        return "library/projects/new";
     }
 
     @PostMapping()
     public String create(@ModelAttribute("project") @Valid MaconProject project, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
-            return "library/new";
+            return "library/projects/new";
         }
 
         maconProjectDAO.save(project);
-        return "redirect:/library";
+        return "redirect:/library/projects";
     }
 
     @GetMapping("/{id}/edit")
     public String edit(Model model, @PathVariable int id) {
         model.addAttribute("project", maconProjectDAO.show(id));
-        return "library/edit";
+        return "library/projects/edit";
     }
 
     @PatchMapping("/{id}")
@@ -73,16 +73,16 @@ public class MaconProjectController {
                          @PathVariable("id") int id) {
 
         if (bindingResult.hasErrors()) {
-            return "library/edit";
+            return "library/projects/edit";
         }
 
         maconProjectDAO.update(id, project);
-        return "redirect:/library";
+        return "redirect:/library/projects";
     }
 
     @DeleteMapping("/{id}")
     public String delete(@PathVariable("id") int id) {
         maconProjectDAO.delete(id);
-        return "redirect:/library";
+        return "redirect:/library/projects";
     }
 }
