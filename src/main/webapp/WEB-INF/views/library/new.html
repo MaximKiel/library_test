@@ -35,6 +35,10 @@
     <input type="text" th:field="*{segment}" id="segment">
     <div style="color: red" th:if="${#fields.hasErrors('segment')}" th:errors="*{segment}">segment error</div>
     <br/>
+    <label for="type">Введите тип проекта: </label>
+    <input type="text" th:field="*{type}" id="type">
+    <div style="color: red" th:if="${#fields.hasErrors('type')}" th:errors="*{type}">type error</div>
+    <br/>
     <label for="period">Введите год проекта: </label>
     <input type="number" th:field="*{period}" id="period">
     <div style="color: red" th:if="${#fields.hasErrors('period')}" th:errors="*{period}">period error</div>

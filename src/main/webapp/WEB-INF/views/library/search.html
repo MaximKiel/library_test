@@ -5,11 +5,44 @@
     <title>Search</title>
 </head>
 <body>
-<form th:action="@{/search-result}" th:object="${form}" th:method="post">
-
+<form th:method="POST" th:action="@{/library/search-result}" th:object="${project}">
+    <label for="number">Введите номер проекта: </label>
+    <input type="text" th:field="*{number}" id="number">
+    <div style="color: red" th:if="${#fields.hasErrors('number')}" th:errors="*{number}">number error</div>
+    <br/>
+    <label for="title">Введите название проекта: </label>
+    <input type="text" th:field="*{title}" id="title">
+    <div style="color: red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">title error</div>
+    <br/>
     <label for="country">Введите страну проекта: </label>
-    <input type="text"  id="country">
-
+    <input type="text" th:field="*{country}" id="country">
+    <div style="color: red" th:if="${#fields.hasErrors('country')}" th:errors="*{country}">country error</div>
+    <br/>
+    <label for="region">Введите регион проекта: </label>
+    <input type="text" th:field="*{region}" id="region">
+    <div style="color: red" th:if="${#fields.hasErrors('region')}" th:errors="*{region}">region error</div>
+    <br/>
+    <label for="city">Введите город проекта: </label>
+    <input type="text" th:field="*{city}" id="city">
+    <div style="color: red" th:if="${#fields.hasErrors('city')}" th:errors="*{city}">city error</div>
+    <br/>
+    <label for="client">Введите наименование заказчика: </label>
+    <input type="text" th:field="*{client}" id="client">
+    <div style="color: red" th:if="${#fields.hasErrors('client')}" th:errors="*{client}">client error</div>
+    <br/>
+    <label for="segment">Введите сегмент рынка: </label>
+    <input type="text" th:field="*{segment}" id="segment">
+    <div style="color: red" th:if="${#fields.hasErrors('segment')}" th:errors="*{segment}">segment error</div>
+    <br/>
+    <label for="type">Введите тип проекта: </label>
+    <input type="text" th:field="*{type}" id="type">
+    <div style="color: red" th:if="${#fields.hasErrors('type')}" th:errors="*{type}">type error</div>
+    <br/>
+    <label for="period">Введите год проекта: </label>
+    <input type="number" th:field="*{period}" id="period">
+    <div style="color: red" th:if="${#fields.hasErrors('period')}" th:errors="*{period}">period error</div>
+    <br/>
+    <input type="submit" value="Найти"/>
 </form>
 </body>
 </html>
