@@ -13,6 +13,10 @@
 
 <a th:href="@{/library/books/{id}/edit(id=${book.getId()})}">Редактировать</a>
 
+<form th:method="get" th:action="@{/library/books/{id}/download(id=${book.getId()})}">
+    <input type="submit" value="Скачать документ pdf">
+</form>
+
 <form th:method="DELETE" th:action="@{/library/books/{id}(id=${book.getId()})}">
   <input type="submit" value="Удалить">
 </form>
