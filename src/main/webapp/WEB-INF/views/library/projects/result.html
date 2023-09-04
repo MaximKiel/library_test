@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head>
     <meta charset="UTF-8">
     <title>Search result</title>
 </head>
 <body>
 <div th:each="project : ${result}">
-  <a th:text="${project.getNumber() + ', ' + project.getTitle()}">project</a>
+  <a th:href="@{/library/projects/{id}(id=${project.getId()})}"
+     th:text="${project.getNumber() + ', ' + project.getTitle()}">project</a>
 </div>
 
 <br/>

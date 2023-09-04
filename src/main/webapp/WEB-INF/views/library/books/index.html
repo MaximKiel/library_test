@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+</head>
+<body>
+<a href="/library/books/new">Добавить материал</a>
+<br/>
+<a href="/library/books/search">Найти материал</a>
+
+<br/>
+<hr/>
+
+<div th:each="book : ${books}">
+  <!--/*@thymesVar id="book" type="com.macon_library_test.model.Book"*/-->
+  <a th:href="@{/library/books/{id}(id=${book.getId()})}"
+     th:text="${book.getTitle() + ', ' + book.getType() + ', ' + book.getSegment()}">book</a>
+</div>
+
+<br/>
+<hr/>
+
+<a href="/library">На главную</a>
+</body>
+</html>

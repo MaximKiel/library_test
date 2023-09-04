@@ -1,7 +1,6 @@
 package com.macon_library_test.dao;
 
 import com.macon_library_test.model.Book;
-import com.macon_library_test.model.MaconProject;
 import com.macon_library_test.utul.SearchBook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -47,7 +46,7 @@ public class BookDAO {
         jdbcTemplate.update("DELETE FROM book WHERE id=?", id);
     }
 
-    public List<Book> findBook(SearchBook searchBook) {
+    public List<Book> find(SearchBook searchBook) {
         List<Book> result = jdbcTemplate.query("SELECT * FROM book", new BeanPropertyRowMapper<>(Book.class));
 
         if (!searchBook.getTitle().equals("")) {

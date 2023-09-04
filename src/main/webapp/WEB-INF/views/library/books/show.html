@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Book</title>
+</head>
+<body>
+<p th:text="${'Название: ' + book.getTitle()}">Value</p>
+<p th:text="${'Автор: ' + book.getAuthor()}">Value</p>
+<p th:text="${'Тип материала: ' + book.getType()}">Value</p>
+<p th:text="${'Сегмент рынка: ' + book.getSegment()}">Value</p>
+<p th:text="${'Год публикации: ' + book.getYear()}">Value</p>
+
+<a th:href="@{/library/books/{id}/edit(id=${book.getId()})}">Редактировать</a>
+
+<form th:method="DELETE" th:action="@{/library/books/{id}(id=${book.getId()})}">
+  <input type="submit" value="Удалить">
+</form>
+
+<br/>
+<hr/>
+
+<a href="/library">На главную</a>
+<a href="/library/books">Ко всем материалам</a>
+</body>
+</html>
