@@ -39,3 +39,4 @@ build/
 
 database.properties
 initDB.sql
+populateDB.sql
