@@ -77,7 +77,7 @@ public class MaconProjectController {
         }
 
         maconProjectDAO.update(id, project);
-        return "redirect:/library/projects";
+        return "redirect:/library/projects/{id}";
     }
 
     @DeleteMapping("/{id}")

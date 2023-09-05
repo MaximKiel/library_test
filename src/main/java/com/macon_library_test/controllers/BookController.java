@@ -84,7 +84,7 @@ public class BookController {
         }
 
         bookDAO.update(id, book);
-        return "redirect:/library/books";
+        return "redirect:/library/books/{id}";
     }
 
     @DeleteMapping("/{id}")
