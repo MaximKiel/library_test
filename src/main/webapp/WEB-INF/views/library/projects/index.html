@@ -5,22 +5,13 @@
     <title>Projects</title>
 </head>
 <body>
-
-<a href="/library/projects/new">Добавить проект</a>
-<br/>
-<a href="/library/projects/search">Найти проект</a>
-
-<br/>
+<a href="/library"><b>На главную</b></a><br/>
+<a href="/library/projects/new">Добавить проект</a><br/>
+<a href="/library/projects/search">Найти проект</a><br/>
 <hr/>
-
 <div th:each="project : ${projects}">
     <a th:href="@{/library/projects/{id}(id=${project.getId()})}"
        th:text="${project.getNumber() + ', ' + project.getTitle()}">project</a>
 </div>
-
-<br/>
-<hr/>
-
-<a href="/library">На главную</a>
 </body>
 </html>

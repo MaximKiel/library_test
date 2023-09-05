@@ -5,6 +5,9 @@
     <title>Book</title>
 </head>
 <body>
+<a href="/library"><b>На главную</b></a><br/>
+<a href="/library/books">Ко всем материалам</a><br/>
+<hr/>
 <p th:text="${'Название: ' + book.getTitle()}">Value</p>
 <p th:text="${'Автор: ' + book.getAuthor()}">Value</p>
 <p th:text="${'Тип материала: ' + book.getType()}">Value</p>
@@ -20,11 +23,5 @@
 <form th:method="DELETE" th:action="@{/library/books/{id}(id=${book.getId()})}">
   <input type="submit" value="Удалить">
 </form>
-
-<br/>
-<hr/>
-
-<a href="/library">На главную</a>
-<a href="/library/books">Ко всем материалам</a>
 </body>
 </html>

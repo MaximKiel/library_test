@@ -5,7 +5,9 @@
     <title>Project</title>
 </head>
 <body>
-
+<a href="/library"><b>На главную</b></a><br/>
+<a href="/library/projects">Ко всем проектам</a><br/>
+<hr/>
 <p th:text="${'Номер проекта: ' + project.getNumber()}">Value</p>
 <p th:text="${'Название: ' + project.getTitle()}">Value</p>
 <p th:text="${'Тип проекта: ' + project.getType()}">Value</p>
@@ -19,12 +21,5 @@
 <form th:method="DELETE" th:action="@{/library/projects/{id}(id=${project.getId()})}">
     <input type="submit" value="Удалить">
 </form>
-
-<br/>
-<hr/>
-
-<a href="/library">На главную</a>
-<a href="/library/projects">Ко всем проектам</a>
-
 </body>
 </html>

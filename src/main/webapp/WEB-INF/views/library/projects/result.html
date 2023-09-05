@@ -5,16 +5,13 @@
     <title>Search result</title>
 </head>
 <body>
+<a href="/library"><b>На главную</b></a><br/>
+<a href="/library/projects">Ко всем проектам</a><br/>
+<a href="/library/projects/search">Найти проект</a><br/>
+<hr/>
 <div th:each="project : ${result}">
   <a th:href="@{/library/projects/{id}(id=${project.getId()})}"
      th:text="${project.getNumber() + ', ' + project.getTitle()}">project</a>
 </div>
-
-<br/>
-<hr/>
-
-<a href="/library">На главную</a>
-<a href="/library/projects">Ко всем проектам</a>
-<a href="/library/projects/search">Новый поиск</a>
 </body>
 </html>
