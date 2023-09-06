@@ -9,6 +9,7 @@
 <a href="/library/books">Ко всем материалам</a><br/>
 <a href="/library/books/search">Новый поиск</a><br/>
 <hr/>
+<p>Результаты поиска:</p>
 <div th:each="book : ${result}">
   <a th:href="@{/library/books/{id}(id=${book.getId()})}"
      th:text="${book.getTitle() + ', ' + book.getType() + ', ' + book.getSegment()}">book</a>

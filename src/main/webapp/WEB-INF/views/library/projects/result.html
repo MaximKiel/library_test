@@ -9,9 +9,10 @@
 <a href="/library/projects">Ко всем проектам</a><br/>
 <a href="/library/projects/search">Найти проект</a><br/>
 <hr/>
+<p>Результаты поиска:</p>
 <div th:each="project : ${result}">
   <a th:href="@{/library/projects/{id}(id=${project.getId()})}"
-     th:text="${project.getNumber() + ', ' + project.getTitle()}">project</a>
+     th:text="${project.getTitle()}">project</a>
 </div>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Projects</title>
@@ -9,9 +9,5 @@
 <a href="/library/projects/new">Добавить проект</a><br/>
 <a href="/library/projects/search">Найти проект</a><br/>
 <hr/>
-<div th:each="project : ${projects}">
-    <a th:href="@{/library/projects/{id}(id=${project.getId()})}"
-       th:text="${project.getNumber() + ', ' + project.getTitle()}">project</a>
-</div>
 </body>
 </html>
